@@ -8,13 +8,17 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install-client": "cd client && npm install",
-    "build": "cd client && npm run build"
+    "build": "cross-env NODE_ENV=production npm install && cd client && npm install && npm run build",
+    "heroku-postbuild": "cross-env NPM_CONFIG_PRODUCTION=false npm install && npm run install-client && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "description": "Smart Code Snippet Manager with AI tagging and explanations",
+  "engines": {
+    "node": ">=16.x"
+  },
   "dependencies": {
     "axios": "^1.9.0",
     "cors": "^2.8.5",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "cross-env": "^7.0.3"
   }
 }

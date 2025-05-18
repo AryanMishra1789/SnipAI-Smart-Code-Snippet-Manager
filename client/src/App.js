@@ -9,8 +9,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // API URL - would come from environment variables in production
-  const API_URL = 'http://localhost:5000/api/snippets';
+  // API URL - dynamically set based on environment
+  const API_URL = process.env.NODE_ENV === 'production' 
+    ? '/api/snippets'  // In production, use relative URL (served by same origin)
+    : 'http://localhost:5000/api/snippets'; // In development, use full URL
 
   // Fetch snippets from API
   const fetchSnippets = async () => {

@@ -48,7 +48,23 @@ From the root directory, run:
 npm run dev
 ```
 
-This command will start both the backend server (port 5000) and the React frontend (port 3000) concurrently.
+This command will start both the backend server (port 5000) and the React frontend (port 3002) concurrently.
+
+### Deployment on Railway
+
+To deploy the application on Railway:
+
+1. Make sure your code is pushed to a GitHub repository
+2. Connect your GitHub repository to Railway
+3. Set up the following environment variables in Railway:
+   - `NODE_ENV=production`
+   - `PORT=5000` (Railway will override this with its own port)
+4. Deploy the application
+
+Railway will automatically:
+1. Install all dependencies
+2. Build the React application
+3. Start the server that will serve both the API and static files
 
 ## Recent Enhancements
 
