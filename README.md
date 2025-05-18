@@ -1,14 +1,16 @@
 # SnipAI - Smart Code Snippet Manager
 
-SnipAI is a smart code snippet manager built for the HackMern.AI hackathon. It allows developers to store, organize, and retrieve code snippets with AI-powered tagging and explanations.
+SnipAI is a smart code snippet manager that allows developers to store, organize, and retrieve code snippets with AI-powered tagging and explanations. It features smart search capabilities, including finding similar snippets both locally and from web sources.
 
 ## Features
 
 - 📋 Store and manage code snippets with syntax highlighting
 - 🏷️ Auto-generate tags using AI to categorize snippets
-- 📝 Generate explanations of what the code does
-- 🔍 Easy retrieval of code snippets
-- 💻 Clean, modern UI for a great user experience
+- 📝 Generate concise explanations of what the code does
+- 🔍 Find similar snippets from your collection and the web
+- 🔄 Interactive similar snippet viewer with expand/collapse functionality
+- 🌐 Web search integration for finding related code examples
+- 💻 Clean, modern UI with a great user experience
 
 ## Tech Stack
 
@@ -47,6 +49,16 @@ npm run dev
 ```
 
 This command will start both the backend server (port 5000) and the React frontend (port 3000) concurrently.
+
+## Recent Enhancements
+
+- ✅ Improved AI explanations with concise, readable format
+- ✅ Enhanced similar snippets component with filtering tabs
+- ✅ Added syntax highlighting to code previews
+- ✅ Implemented expand/collapse functionality for code snippets
+- ✅ Improved styling and user interface for better readability
+- ✅ Added specialized detection for Python libraries (Whisper, Pandas, NumPy)
+- ✅ Enhanced web search results with better code similarity matching
 
 ## Project Structure
 
