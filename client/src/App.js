@@ -9,10 +9,24 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // API URL - dynamically set based on environment
-  const API_URL = process.env.NODE_ENV === 'production' 
-    ? '/api/snippets'  // In production, use relative URL (served by same origin)
-    : 'http://localhost:5000/api/snippets'; // In development, use full URL
+  // API URL - dynamically set based on environment and deployment platform
+  const getApiUrl = () => {
+    // Development environment
+    if (process.env.NODE_ENV !== 'production') {
+      return 'http://localhost:5000/api/snippets';
+    }
+    
+    // For Netlify deployment with separate backend
+    const netlifyBackendUrl = process.env.REACT_APP_BACKEND_URL;
+    if (netlifyBackendUrl) {
+      return `${netlifyBackendUrl}/api/snippets`;
+    }
+    
+    // Default for Railway, Vercel or other platforms that serve both frontend and backend
+    return '/api/snippets';
+  };
+  
+  const API_URL = getApiUrl();
 
   // Fetch snippets from API
   const fetchSnippets = async () => {
