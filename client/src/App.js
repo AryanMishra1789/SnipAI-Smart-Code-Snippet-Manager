@@ -74,6 +74,7 @@ function App() {
   // Fetch snippets on component mount
   useEffect(() => {
     fetchSnippets();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
